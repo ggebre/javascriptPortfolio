@@ -1,0 +1,61 @@
+body {
+    background-image: url("american_flag.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+#flash-card {
+    position: relative;
+    /* background-image: url("american_flag.jpg"); */
+    width: 500px;
+    height: 350px;
+    background-color: grey;
+    color: white;
+    margin: 100px auto;
+    
+} 
+
+#flash-card #flashcard-buttons-container {
+    display: flex;
+    position: absolute;
+    left:180px;  
+    bottom:30px;  
+}
+img {
+    max-width:300px;
+    width: 200px;
+    height: 100px;
+}
+#flash-card p, #flash-card ul {
+    padding: 20px 50px;
+}
+#next-back-buttons{
+    position: absolute;
+    bottom: 20px;
+    left:210px;  
+} 
+li {
+    list-style-type: none;
+} 
+.questions, .answers {
+    margin-top: 5px
+}
+
+.hidden {
+    display: none;
+} 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.jumbotron{
+    width: 800px;
+    margin: 80px auto;
+    color: rgb(16,84,243);
+}
+#likeDislikeContainer{
+    display: flex;
+}
+
+
