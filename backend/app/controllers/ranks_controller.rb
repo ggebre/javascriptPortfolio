@@ -1,9 +1,8 @@
 class RanksController < ApplicationController
     
     def show 
-        
         rank = Rank.find(params[:id])
-        render json: rank 
+        render json: RankSerializer.new(rank).to_serialized_json 
     end
 
     def update 

@@ -64,6 +64,8 @@ a {
     width: 800px;
     margin: 80px auto;
     color: rgb(16,84,243);
+    word-spacing: 5px;
+    line-height: 25px;
 }
 #likeDislikeContainer{
     display: flex;
@@ -71,6 +73,12 @@ a {
 }
 .col{
     margin-bottom: 3px;
+}
+
+#score-display{
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 

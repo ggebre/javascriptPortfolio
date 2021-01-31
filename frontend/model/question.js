@@ -3,9 +3,13 @@ class Question {
     static questionAnswerContainer = document.getElementById("question-answer-container") 
     static questionContainer = document.getElementById("question")
     static answersContainer = document.getElementById("answer")
+    static displayScore = document.getElementById("score-display")
     static score = 0
     static questionSelectedId = 0
-    static questonSelectedCount = 0
+    static questonSelectedCount = 0 
+
+    static questionsToDisplay = Question.all.slice(0, 10)
+
     static questionsNeedAnswerUpdate = [20,23,28,29, 39, 40, 43,44, 46, 47]
     static answerUpdates = {28: "Joseph Robinette Biden Jr (Joe Biden)",
                             29: "Kamala Devi Harris", 
@@ -32,11 +36,11 @@ class Question {
         this.answerDiv.id = `answer-${this.id}`
         this.answerDiv.style.margin = `5px`
 
-        this.resultDiv = document.createElement('div')
-        this.resultDiv.className = "hidden"
-        this.resultDiv.innerHTML = `<p>YOUR RESULT DISPLAYED HERE!!!</p>`
+        // this.resultDiv = document.createElement('div')
+        // this.resultDiv.className = "hidden"
+        // this.resultDiv.innerHTML = `<p>YOUR RESULT DISPLAYED HERE!!!</p>`
         
-        Question.questionAnswerContainer.appendChild(this.resultDiv)
+        // Question.questionAnswerContainer.appendChild(this.resultDiv)
         
         this.questionDiv.addEventListener('click', e => {
             Question.questionSelectedId = this.id
@@ -53,10 +57,7 @@ class Question {
                 }
 
                 if([9,10].includes(Question.questonSelectedCount)){
-                    console.log("DISPLAY RESULT")
-                    
-                    this.resultDiv.classList.remove("hidden")
-                    this.resultDiv.innerHTML = `<h2> YOU SCORE: ${Question.score} / 10 </h2>`
+                     Question.displayScore.innerHTML = `<h5> YOU SCORE: ${Question.score} / 10 </h5>`
                 }
             this.answerDiv.style.pointerEvents = 'none'
             this.answerDiv.children[0].classList.remove("btn-primary")
@@ -85,7 +86,6 @@ class Question {
         // randomize Question to get answers randomized 
         Question.all.forEach(question=> {
             question.renderQuestion()
-            
             // Question.questionContainer.appendChild(question.questionDiv) 
             Question.questionContainer.appendChild(question.questionDiv) 
         })
@@ -122,6 +122,8 @@ class Question {
         if(Question.stateAndDistricSpecific.representative == this.id){
             this.answers[0].item = state.representatives.find(rep => rep.district == district).name
         } 
+    
+        
     }
 
     // updateClassesForQuestionDiv() {

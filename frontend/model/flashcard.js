@@ -26,16 +26,9 @@ class FlashCard {
         this.answerList.id = `answer-${this.id}` 
 
        
-        // FlashCard.container.append(this.previousButton, this.nextButton)
-        FlashCard.container.append(this.buttonContainer)
         
-        // this.main.addEventListener('click', e => {
-        //     // switch between question and answer lists when clicked!!!!!
-            
-        //     FlashCard.answerRendered = !FlashCard.answerRendered
-        //     this.main.innerHTML = ""
-            
-        // })
+        FlashCard.container.append(this.buttonContainer)
+    
     } 
 
     renderQuestion(){
