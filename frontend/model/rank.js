@@ -7,9 +7,10 @@ class Rank {
         this.likes = parseInt(likes) 
         this.dislikes = parseInt(dislikes) 
         this.id = id 
+
         this.likeDiv = document.createElement('div')
         this.likeDiv.id = `like-${this.id}`
-
+        this.likeDiv.style.marginRight = "8px"
         this.disLikeDiv = document.createElement('div')
         this.disLikeDiv.id = `disLike-${this.id}`
 

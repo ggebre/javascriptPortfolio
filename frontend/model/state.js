@@ -54,6 +54,7 @@ class State {
             .then(Question.renderAllQuestionsAndAnswers)
             .then(State.selectState.classList.add("hidden"))
             .then(container.classList.remove("hidden"))
+            .then(Navigation.navigationContainer.classList.remove("hidden"))
             // .then(State.selectState.classList.add("hidden"))
             // .then(State.container.classList.remove("hidden"))
         })

@@ -4,13 +4,24 @@ body {
     background-size: cover;
     color: white;
 }
+
+nav{
+    display: flex;
+    width: 400px;
+    margin: 20px auto;
+} 
+nav button{
+    flex-basis: 100%;
+    text-align: center;
+}
 #flash-card {
     position: relative;
-    /* background-image: url("american_flag.jpg"); */
+    background-image: url("american_flag.jpg");  
     width: 500px;
     height: 350px;
     background-color: grey;
     color: white;
+    font-size: medium;
     margin: 100px auto;
     
 } 
@@ -56,6 +67,10 @@ a {
 }
 #likeDislikeContainer{
     display: flex;
+    margin: 10px;
+}
+.col{
+    margin-bottom: 3px;
 }
 
 

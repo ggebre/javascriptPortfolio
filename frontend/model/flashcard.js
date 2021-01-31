@@ -39,12 +39,12 @@ class FlashCard {
     } 
 
     renderQuestion(){
-        this.questionP.innerHTML = `<h5>${this.item}</h5>`
+        this.questionP.innerHTML = `<h2>${this.item}</h2>`
         this.main.appendChild(this.questionP)
     } 
     renderAnswers(){
         this.answers.forEach(answer => {
-            this.answerList.innerHTML += `${answer.item}`
+            this.answerList.innerHTML += `<h3>${answer.item}<h3>`
         })
         this.main.appendChild(this.answerList)
     } 

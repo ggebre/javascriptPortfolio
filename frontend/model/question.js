@@ -4,6 +4,8 @@ class Question {
     static questionContainer = document.getElementById("question")
     static answersContainer = document.getElementById("answer")
     static score = 0
+    static questionSelectedId = 0
+    static questonSelectedCount = 0
     static questionsNeedAnswerUpdate = [20,23,28,29, 39, 40, 43,44, 46, 47]
     static answerUpdates = {28: "Joseph Robinette Biden Jr (Joe Biden)",
                             29: "Kamala Devi Harris", 
@@ -24,25 +26,41 @@ class Question {
         
         this.questionDiv = document.createElement('div')
         this.questionDiv.id = `question-${this.id}`
-        this.space = document.createElement('p')
+        this.questionDiv.style.margin = `5px`
+        
         this.answerDiv = document.createElement('div')
         this.answerDiv.id = `answer-${this.id}`
-        // this.questionButton.id = `question-${this.id}`
+        this.answerDiv.style.margin = `5px`
 
-        this.matched = 0
+        this.resultDiv = document.createElement('div')
+        this.resultDiv.className = "hidden"
+        this.resultDiv.innerHTML = `<p>YOUR RESULT DISPLAYED HERE!!!</p>`
+        
+        Question.questionAnswerContainer.appendChild(this.resultDiv)
         
         this.questionDiv.addEventListener('click', e => {
+            Question.questionSelectedId = this.id
+            Question.questonSelectedCount++
+            
             this.questionDiv.style.pointerEvents = 'none' 
-                this.matched++
+            this.questionDiv.children[0].classList.remove("btn-primary")
+            this.questionDiv.children[0].classList.add("btn-secondary")
         }) 
         this.answerDiv.addEventListener('click', e => {
-            
-                if (this.matched){
+                
+                if(Question.questionSelectedId == this.id){
                     Question.score++ 
                 }
-        
+
+                if([9,10].includes(Question.questonSelectedCount)){
+                    console.log("DISPLAY RESULT")
+                    
+                    this.resultDiv.classList.remove("hidden")
+                    this.resultDiv.innerHTML = `<h2> YOU SCORE: ${Question.score} / 10 </h2>`
+                }
             this.answerDiv.style.pointerEvents = 'none'
-            
+            this.answerDiv.children[0].classList.remove("btn-primary")
+            this.answerDiv.children[0].classList.add("btn-secondary")
             console.log(`${Question.score}`)
         })
         
@@ -68,6 +86,7 @@ class Question {
         Question.all.forEach(question=> {
             question.renderQuestion()
             
+            // Question.questionContainer.appendChild(question.questionDiv) 
             Question.questionContainer.appendChild(question.questionDiv) 
         })
 
@@ -76,7 +95,7 @@ class Question {
             // question.updateStateSpecificAnswers(question.state, question.district)
             question.updateStateSpecificAnswers(State.chosenState, State.chosenDistrict)
             question.renderAnswer()
-            // Question.answersContainer.appendChild(question.answerDiv)
+        
             Question.answersContainer.appendChild(question.answerDiv)
         })
     }
@@ -100,11 +119,22 @@ class Question {
                 this.answers.push({question_id: this.id, item: senator.name})
             })
         }
-
-        
         if(Question.stateAndDistricSpecific.representative == this.id){
             this.answers[0].item = state.representatives.find(rep => rep.district == district).name
         } 
     }
+
+    // updateClassesForQuestionDiv() {
+    //     this.questionDiv.style.pointerEvents = 'none' 
+    //     this.questionDiv.children[0].classList.remove("btn-primary")
+    //     this.questionDiv.children[0].classList.add("btn-secondary")
+    // } 
+
+    // changeClassesForQuestionDiv() {
+    //     this.answerDiv.style.pointerEvents = 'none' 
+    //     this.answerDiv.children[0].classList.remove("btn-primary")
+    //     this.answerDiv.children[0].classList.add("btn-secondary")
+    // } 
+
     
 }

@@ -18,6 +18,9 @@ class Comment {
         this.deleteButton = document.createElement('button')
         this.editButton.textContent = "Edit"
         this.deleteButton.textContent = "Delete"
+        this.editButton.className = "btn btn-warning"
+        this.editButton.style.marginRight= "5px"
+        this.deleteButton.className = "btn btn-danger"
 
         // this.changeDiv.append(this.commentP, this.editButton,this.deleteButton )
         
@@ -81,8 +84,13 @@ class Comment {
         form.id = "create-form"
         const input = document.createElement("input")
         input.type = "text"
+        input.style.marginTop = "5px"
+        input.className = "form-control"
         const submit = document.createElement("input")
         submit.type = "submit"
+        submit.className = "btn btn-primary"
+        submit.style.marginTop = "5px"
+        submit.style.marginBottom = "5px"
 
         form.append(input, submit) 
         Comment.createComment.appendChild(form)
