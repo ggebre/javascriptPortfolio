@@ -7,6 +7,7 @@ class Question {
     static score = 0
     static questionSelectedId = 0
     static questonSelectedCount = 0 
+    static questionSlicerIndexMultiplier = 0
 
     static questionsToDisplay = Question.all.slice(0, 10)
 
@@ -84,13 +85,16 @@ class Question {
 
     static renderAllQuestionsAndAnswers() {
         // randomize Question to get answers randomized 
-        Question.all.forEach(question=> {
+        const someQuestion = Question.all.slice(Question.questionSlicerIndexMultiplier*10,(Question.questionSlicerIndexMultiplier + 1) * 10)
+        // Question.all.forEach(question=> {
+            someQuestion.forEach(question => {
             question.renderQuestion()
             // Question.questionContainer.appendChild(question.questionDiv) 
             Question.questionContainer.appendChild(question.questionDiv) 
         })
 
-        Helper.shuffle(Question.all).forEach(question=>{
+        Helper.shuffle(someQuestion).forEach(question=>{
+        // Helper.shuffle(Question.all).forEach(question=>{
             question.updateAnswer()
             // question.updateStateSpecificAnswers(question.state, question.district)
             question.updateStateSpecificAnswers(State.chosenState, State.chosenDistrict)
@@ -126,17 +130,30 @@ class Question {
         
     }
 
-    // updateClassesForQuestionDiv() {
-    //     this.questionDiv.style.pointerEvents = 'none' 
-    //     this.questionDiv.children[0].classList.remove("btn-primary")
-    //     this.questionDiv.children[0].classList.add("btn-secondary")
-    // } 
+    static renderNextSetOfQuestions(){
+        Question.clearRendered()
+        if (Question.questionSlicerIndexMultiplier < 9){
+            Question.questionSlicerIndexMultiplier++
+        } else {
+            Question.questionSlicerIndexMultiplier = 0
+        }
+        Question.renderAllQuestionsAndAnswers()
+    } 
+    static renderPreviousSetOfQuestions(){
+        Question.clearRendered()
+        if (Question.questionSlicerIndexMultiplier > 0){
+            Question.questionSlicerIndexMultiplier--
+        } else {
+            Question.questionSlicerIndexMultiplier = 9
+        }
+        Question.renderAllQuestionsAndAnswers()
+    } 
 
-    // changeClassesForQuestionDiv() {
-    //     this.answerDiv.style.pointerEvents = 'none' 
-    //     this.answerDiv.children[0].classList.remove("btn-primary")
-    //     this.answerDiv.children[0].classList.add("btn-secondary")
-    // } 
-
+    static clearRendered(){
+        Question.questionContainer.innerHTML = ""
+        Question.answersContainer.innerHTML = ""
+        Question.questonSelectedCount = 0
+        Question.displayScore.innerHTML = ""
+    }
     
 }

@@ -27,6 +27,7 @@ StateAdapter.fetchAndMakeStates()
 .then(State.renderAllStates)
 .then(State.addStatesEventListener)
 .then(State.addDistrictEventListener)
+.then(QuestionControls.renderQuestionControls)
 
 
 // function registerButtonClick(element){

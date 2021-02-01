@@ -5,12 +5,12 @@ body {
     color: white;
 }
 
-nav{
+nav, #question-controls{
     display: flex;
     width: 400px;
     margin: 20px auto;
 } 
-nav button{
+nav button, #question-controls button{
     flex-basis: 100%;
     text-align: center;
 }
@@ -48,6 +48,9 @@ img {
 li {
     list-style-type: none;
 } 
+#flash-card li{
+    list-style-type: circle;
+}
 .questions, .answers {
     margin-top: 5px
 }
