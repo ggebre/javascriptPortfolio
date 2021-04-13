@@ -16,7 +16,7 @@ The project used the following set of technologies
 
 # Contact 
 
-Getu Gebre, getu.gebre.gg@gmail.com <br>
-Project Link, https://github.com/ggebre/javascriptPortfolio 
+* getu.gebre.gg@gmail.com 
+* [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/getugebre)
 
-# Acknowledgements
+
