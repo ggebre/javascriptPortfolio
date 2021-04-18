@@ -14,6 +14,7 @@ The project used the following set of technologies
 <li>Javascript</li>
 <li>Bootstrap</li>
 </ul>
+
 # Inspiration
 As an immigrant, i used different website resources to practice the civic tests to get naturalized. In all the website i used, state and district information was not included. Some of the questions in the civic test asks for the names of the senators and representatives in the applicants state and district. This web app initially requests the user to select the state and district in which the user resides in. Based on this information, the answers are customized to reflect the state and district. 
 
