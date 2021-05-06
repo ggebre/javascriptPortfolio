@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# require 'nokogiri'
-# require 'open-uri' 
+require 'nokogiri'
+require 'open-uri' 
 
 
 # require 'combine_pdf'
@@ -96,16 +96,17 @@
 # end
 
 # # governors to state
-# doc = Nokogiri::HTML(open("https://www.nga.org/governors/"))
-# doc.css('.current-governors__item__link').each do |div|
-#     stateName = div.css('small').text.strip 
-#     state = State.find_by(name: stateName) 
-#     if state 
-#         state.update(governor: div.text.strip.split('Gov.')[1].strip)
-#     end
+doc = Nokogiri::HTML(open("https://www.airbnb.com/s/Chicago--IL--United-States/homes"))
+doc.css('h1').each do |div|
+    # stateName = div.css('small').text.strip 
+    # state = State.find_by(name: stateName) 
+    # if state 
+    #     state.update(governor: div.text.strip.split('Gov.')[1].strip)
+    # end 
+    puts div 
     
 
-# end
+end
 
 
 # Rank.create(likes: 0, dislikes: 0)
@@ -123,7 +124,7 @@
 # end
 
 
-a = ["nice job", "good job", "keep up the good work", "thank you"]
-a.each do |comment|
-    Comment.create(content: comment)
-end
+# a = ["nice job", "good job", "keep up the good work", "thank you"]
+# a.each do |comment|
+#     Comment.create(content: comment)
+# end
