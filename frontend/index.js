@@ -2,9 +2,6 @@
 
 const flashCard = document.getElementById("flash-card")
 
-
-
-
 let matched
 
 let score = 0
@@ -30,30 +27,6 @@ StateAdapter.fetchAndMakeStates()
 .then(QuestionControls.renderQuestionControls)
 
 
-// function registerButtonClick(element){
-    
-//     element.addEventListener('click', (event)=> {
-//         if (event.target.nodeName == 'BUTTON'){
-//             // get random color to set the backgroundColor when it is clicked 
-            
-//             if (element.id == 'question'){
-//                 const question_id = event.target.dataset.id
-//                 matched = questionAndAnserMatched(question_id )
-//                 const randColor = Helper.randomColor()
-//                 event.target.style.backgroundColor = randColor
-//                 color = randColor
-//             } else {
-//                 const answer_id = event.target.dataset.id
-//                 // matched(answer_id) 
-//                 matched(answer_id) ? score++ : missed++
-                
-//                 event.target.style.backgroundColor = color 
-//                 color = ""
-//             }
-//         }
-//     })
-// } 
-
-    Navigation.listner() 
-    Navigation.flashCardListner()
+Navigation.listner() 
+Navigation.flashCardListner()
 

@@ -37,11 +37,7 @@ class Question {
         this.answerDiv.id = `answer-${this.id}`
         this.answerDiv.style.margin = `5px`
 
-        // this.resultDiv = document.createElement('div')
-        // this.resultDiv.className = "hidden"
-        // this.resultDiv.innerHTML = `<p>YOUR RESULT DISPLAYED HERE!!!</p>`
-        
-        // Question.questionAnswerContainer.appendChild(this.resultDiv)
+       
         
         this.questionDiv.addEventListener('click', e => {
             Question.questionSelectedId = this.id
@@ -85,8 +81,24 @@ class Question {
 
     static renderAllQuestionsAndAnswers() {
         // randomize Question to get answers randomized 
+
         const someQuestion = Question.all.slice(Question.questionSlicerIndexMultiplier*10,(Question.questionSlicerIndexMultiplier + 1) * 10)
         // Question.all.forEach(question=> {
+        //    someQuestion.sort(question => {
+
+        //    })
+        someQuestion.sort((a,b) => {
+            let name1 = a.item.toLowerCase()
+            let name2 = b.item.toLowerCase()
+            if (name1 < name2 ){
+                return -1 
+            } else if (name1 > name2 ){
+                return 1
+            }else {
+                return 0
+            }
+        }) 
+
             someQuestion.forEach(question => {
             question.renderQuestion()
             // Question.questionContainer.appendChild(question.questionDiv) 
